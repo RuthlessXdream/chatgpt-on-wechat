@@ -90,7 +90,7 @@ class ChatGPTBot(Bot):
             logger.warn(e)
             logger.warn("[OPEN_AI] APIConnection failed")
             return {"completion_tokens": 0, "content":"我连接不到你的网络"}
-        except openai.error.Timeout as e:
+        except openai.error.TimeoutError as e:
             logger.warn(e)
             logger.warn("[OPEN_AI] Timeout")
             return {"completion_tokens": 0, "content":"我没有收到你的消息"}
